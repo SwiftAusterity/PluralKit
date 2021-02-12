@@ -1,4 +1,4 @@
-FROM mcr.microsoft.com/dotnet/core/sdk:3.1.401
+FROM mcr.microsoft.com/dotnet/sdk:5.0-buster-slim
 WORKDIR /app
 
 # Restore/fetch dependencies excluding app code to make use of caching

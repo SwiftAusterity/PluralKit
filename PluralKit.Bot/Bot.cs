@@ -160,12 +160,12 @@ namespace PluralKit.Bot
                 var sentryScope = serviceScope.Resolve<Scope>();
                 
                 // Add some specific info about Discord error responses, as a breadcrumb
-                if (exc is BadRequestException bre)
-                    sentryScope.AddBreadcrumb(bre.WebResponse.Response, "response.error", data: new Dictionary<string, string>(bre.WebResponse.Headers)); 
-                if (exc is NotFoundException nfe)
-                    sentryScope.AddBreadcrumb(nfe.WebResponse.Response, "response.error", data: new Dictionary<string, string>(nfe.WebResponse.Headers)); 
-                if (exc is UnauthorizedException ue)
-                    sentryScope.AddBreadcrumb(ue.WebResponse.Response, "response.error", data: new Dictionary<string, string>(ue.WebResponse.Headers)); 
+                //if (exc is BadRequestException bre)
+                //    sentryScope.AddBreadcrumb(bre.WebResponse.Response, "response.error", data: new Dictionary<string, string>(bre.WebResponse.Headers)); 
+                //if (exc is NotFoundException nfe)
+                //    sentryScope.AddBreadcrumb(nfe.WebResponse.Response, "response.error", data: new Dictionary<string, string>(nfe.WebResponse.Headers)); 
+                //if (exc is UnauthorizedException ue)
+                //    sentryScope.AddBreadcrumb(ue.WebResponse.Response, "response.error", data: new Dictionary<string, string>(ue.WebResponse.Headers)); 
                 
                 SentrySdk.CaptureEvent(sentryEvent, sentryScope);
 

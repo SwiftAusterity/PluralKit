@@ -64,9 +64,9 @@ namespace PluralKit.Bot
             if (e is JsonReaderException jre && jre.Message == "Unexpected character encountered while parsing value: <. Path '', line 0, position 0.") return false;
 
             // And now (2020-05-12), apparently Discord returns these weird responses occasionally. Also not our problem.
-            if (e is BadRequestException bre && bre.WebResponse.Response.Contains("<center>nginx</center>")) return false;
-            if (e is NotFoundException ne && ne.WebResponse.Response.Contains("<center>nginx</center>")) return false;
-            if (e is UnauthorizedException ue && ue.WebResponse.Response.Contains("<center>nginx</center>")) return false;
+            if (e is BadRequestException bre && bre.WebResponse.Response.ToString().Contains("<center>nginx</center>")) return false;
+            if (e is NotFoundException ne && ne.WebResponse.Response.ToString().Contains("<center>nginx</center>")) return false;
+            if (e is UnauthorizedException ue && ue.WebResponse.Response.ToString().Contains("<center>nginx</center>")) return false;
 
             // 500s? also not our problem :^)
             if (e is ServerErrorException) return false;

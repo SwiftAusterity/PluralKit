@@ -94,7 +94,7 @@ namespace PluralKit.Bot
                 catch (NotFoundException e)
                 {
                     var errorText = e.WebResponse?.Response;
-                    if (errorText != null && errorText.Contains("10015") && !hasRetried)
+                    if (errorText != null && errorText.ToString().Contains("10015") && !hasRetried)
                     {
                         // Error 10015 = "Unknown Webhook" - this likely means the webhook was deleted
                         // but is still in our cache. Invalidate, refresh, try again
